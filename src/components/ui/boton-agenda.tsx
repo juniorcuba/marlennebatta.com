@@ -16,13 +16,13 @@ export function BotonAgenda({ grande = false, className = "" }: { grande?: boole
         nombre="calendario"
         ancho={36}
         alto={37}
-        className={grande ? "h-[33px] w-8 xl:h-[37px] xl:w-9" : "h-[27px] w-[26px] sm:h-[37px] sm:w-9"}
+        className={grande ? "h-[33px] w-8 xl:h-[37px] xl:w-9" : "h-[27px] w-[26px] max-[359px]:hidden sm:h-[37px] sm:w-9"}
       />
       {grande ? (
         "Agenda una llamada"
       ) : (
         <>
-          <span className="sm:hidden">
+          <span className="whitespace-nowrap sm:hidden">
             Agenda
             <br />
             una llamada

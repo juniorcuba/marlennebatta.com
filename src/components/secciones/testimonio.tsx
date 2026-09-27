@@ -15,7 +15,7 @@ export function Testimonio() {
     >
       <div className="contenedor">
         <figure className="mx-auto max-w-[1021px]">
-          <blockquote className="font-display text-[clamp(2.25rem,2rem+0.5vw,2.5rem)] leading-[0.89] text-white">
+          <blockquote className="font-display text-[min(8.96vw,2.25rem)] leading-[0.89] sm:text-[clamp(2.25rem,2rem+0.5vw,2.5rem)] text-white">
             <p>
               <span className="text-bruma">“Trabajar con Marlene transformó la forma en que lideramos y vendemos.</span>{" "}
               Nos dio claridad, enfoque y herramientas prácticas que impactaron tanto nuestros resultados como la

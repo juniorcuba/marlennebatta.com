@@ -16,7 +16,7 @@ export function Hero() {
           <div className="mx-auto max-w-[640px] xl:mx-0 xl:max-w-none">
             <h1
               id="hero-titulo"
-              className="font-display text-[clamp(2.25rem,1rem+3vw,4rem)] leading-[0.99] text-black"
+              className="font-display text-[min(8.96vw,2.25rem)] leading-[0.99] text-black sm:text-[clamp(2.25rem,1rem+3vw,4rem)]"
             >
               <span className="text-azul">Estructuro equipos, desarrollo líderes y convierto</span> estrategia
               en resultados sostenibles.
@@ -47,7 +47,7 @@ export function Hero() {
           402 × 555 con la cita montada sobre el borde inferior; en xl, la caja de
           758 × 780 del escritorio. Todo va en % de la caja.
         */}
-        <div className="relative -mx-5 mt-9 sm:-mx-6 md:mx-auto md:mt-12 md:w-full md:max-w-[520px] xl:order-1 xl:mt-0 xl:max-w-none">
+        <div className="relative -mx-5 mt-9 min-[520px]:mx-auto min-[520px]:w-full min-[520px]:max-w-[520px] md:mt-12 xl:order-1 xl:mt-0 xl:max-w-none">
           <div className="relative aspect-[402/555] overflow-hidden xl:aspect-[758/780] xl:overflow-visible">
             <div
               aria-hidden

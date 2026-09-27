@@ -28,7 +28,7 @@ export function Logros() {
             className="aspect-[402/481] w-full object-cover md:aspect-[4/3] md:object-[center_30%] xl:aspect-auto xl:w-[40.6%] xl:shrink-0"
           />
           <div className="pt-[41px] pr-5 pb-16 pl-[37px] sm:px-12 sm:py-10 xl:flex-1 xl:pt-[88px] xl:pr-10 xl:pb-12 xl:pl-[75px]">
-            <TituloSeccion id="logros-titulo" resaltado="Cuando trabajamos juntos," interlineado="leading-[1.07]" className="ml-7 max-w-[271px] sm:ml-0 xl:max-w-[471px]">
+            <TituloSeccion id="logros-titulo" resaltado="Cuando trabajamos juntos," interlineado="leading-[1.07]" className="ml-7 max-w-[271px] sm:ml-0 sm:max-w-[471px]">
               logras:
             </TituloSeccion>
             <ul className="mt-[39px] grid grid-cols-[179px_1fr] gap-y-[27px] max-[379px]:grid-cols-2 sm:mt-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-10 xl:mt-[50px] xl:grid-cols-[223px_241px_1fr] xl:gap-x-0 xl:gap-y-[7px]">

@@ -28,7 +28,9 @@ export function ImagenAdaptable({ alt, movil, escritorio, className, quality = 7
   } = getImageProps({ ...comunes, ...movil });
 
   return (
-    <picture>
+    // display: contents → el <img> se comporta como hijo directo del contenedor
+    // (flex, grid o absoluto), igual que un <Image> normal.
+    <picture className="contents">
       <source media="(min-width: 1280px)" srcSet={srcSetEscritorio} sizes={sizesEscritorio} />
       {/* eslint-disable-next-line jsx-a11y/alt-text -- el alt llega en las props de getImageProps */}
       <img {...resto} srcSet={srcSetMovil} className={className} />

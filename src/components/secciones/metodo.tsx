@@ -69,7 +69,7 @@ export function Metodo() {
               <span className="mt-[17px] grid size-[92px] place-items-center rounded-full bg-crema md:mt-8 md:size-[109px] xl:mt-[37px] [&_img]:max-h-[49px] [&_img]:w-auto md:[&_img]:max-h-none">
                 <Icono {...p.icono} />
               </span>
-              <h3 className="mt-[17px] font-display text-xl leading-[1.05] text-black uppercase md:mt-6 md:text-2xl xl:mt-[22px]">
+              <h3 className="mt-[17px] font-display text-xl leading-[1.05] text-black uppercase md:mt-6 md:text-2xl lg:text-xl xl:mt-[22px] xl:text-2xl">
                 <span className="sr-only">Paso {i + 1}: </span>
                 {p.titulo}
               </h3>
