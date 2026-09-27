@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: marlenebatta
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      # Vista previa: sin indexar. Poner a "false" solo en el despliegue definitivo.
+      - key: NEXT_PUBLIC_NOINDEX
+        value: "true"

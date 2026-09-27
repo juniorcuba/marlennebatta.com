@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Tokens — Marlene Batta
+ * Sacados del archivo de Figma "VESPER AGENCY - MARLENE BATTA", nodo 462:2
+ * (landing de escritorio, 1920 × 5743). No estimar de capturas: cada valor
+ * nuevo sale de su nodo. Mapa de nodos → docs/FIGMA.md
+ */
+@theme {
+  --color-azul: #005188; /* títulos, CTA, iconos */
+  --color-cielo: #c4dbfa; /* tarjetas y fondo de "logras" */
+  --color-bruma: #88a8d4; /* caja de contacto, comillas, pie */
+  --color-perla: #b4c7dd; /* círculo del hero */
+  --color-crema: #fffbee; /* tarjeta de "logras", círculos de iconos */
+  --color-tinta: #1a1a1a; /* texto de párrafo */
+  --color-carbon: #1d1d1d; /* fondos oscuros, días del calendario */
+  --color-borde: #dddddd; /* línea inferior de la cabecera */
+
+  --font-display: var(--font-kaisei), ui-serif, Georgia, serif;
+  --font-sans: var(--font-noto), ui-sans-serif, system-ui, sans-serif;
+  /*
+   * El diseño usa "Alte Haas Grotesk" en tres textos cortos. No está en Google
+   * Fonts y su licencia es dudosa para web: se sustituye por la grotesca del
+   * sistema, que es casi idéntica y no cuesta ni un byte.
+   */
+  --font-grotesk: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --shadow-tarjeta: -3px 10px 27.1px rgb(0 0 0 / 0.07);
+
+  --radius-hoja: 127px; /* esquina superior derecha de las tarjetas */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
+  /* La cabecera es fija: que las anclas no queden debajo. */
+  scroll-padding-top: 72px;
+  @variant xl {
+    scroll-padding-top: 119px;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: clip;
+}
+
+@utility contenedor {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1605px; /* 1557 de contenido (x 190–1747) + márgenes */
+  padding-inline: 1.25rem;
+  @variant sm {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* Esquina redondeada tipo "hoja" que se repite en todo el diseño. */
+@utility hoja {
+  border-top-right-radius: clamp(3.5rem, 6.6vw, var(--radius-hoja));
 }
