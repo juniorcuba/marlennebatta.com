@@ -41,28 +41,32 @@ const servicios = [
 
 export function Servicios() {
   return (
-    <section id={anclas.servicios} aria-labelledby="servicios-titulo" className="py-16 xl:pt-[104px] xl:pb-[64px]">
+    <section id={anclas.servicios} aria-labelledby="servicios-titulo" className="pt-7 pb-8 md:py-16 xl:pt-[104px] xl:pb-[64px]">
       <div className="contenedor">
-        <TituloSeccion id="servicios-titulo" resaltado="¿En qué puedo" className="text-center">
+        <TituloSeccion id="servicios-titulo" resaltado="¿En qué puedo" className="mx-auto max-w-[182px] text-center sm:max-w-none">
           ayudarte?
         </TituloSeccion>
-        <ul className="mx-auto mt-12 grid max-w-[400px] gap-6 md:max-w-[800px] md:grid-cols-2 xl:mt-[57px] xl:max-w-none xl:grid-cols-4 xl:gap-[23px]">
+        <ul className="mx-auto mt-7 grid max-w-[372px] gap-[17px] md:mt-12 md:max-w-[800px] md:gap-6 md:grid-cols-2 xl:mt-[57px] xl:max-w-none xl:grid-cols-4 xl:gap-[23px]">
           {servicios.map((s) => (
             <li key={s.titulo} className="hoja flex flex-col overflow-hidden bg-cielo shadow-tarjeta">
-              <Image
-                src={`/images/${s.imagen}.webp`}
-                alt=""
-                width={744}
-                height={520}
-                sizes="(min-width: 1280px) 24vw, (min-width: 768px) 400px, 100vw"
-                className="aspect-[744/520] w-full object-cover"
-              />
-              <div className="flex flex-1 flex-col pt-2 pb-10 xl:pb-[43px]">
-                <h3 className="flex items-center gap-[5%] pr-[4%] pl-[10%] font-display text-2xl leading-[1.1] text-azul xl:whitespace-pre-line">
+              {/* En el móvil (640:565) la foto se funde antes: franja de 200 px. */}
+              <div className="relative h-[200px] overflow-hidden md:h-auto">
+                <Image
+                  src={`/images/${s.imagen}.webp`}
+                  alt=""
+                  width={744}
+                  height={520}
+                  sizes="(min-width: 1280px) 24vw, (min-width: 768px) 400px, 100vw"
+                  className="aspect-[744/520] w-full object-cover object-top"
+                />
+                <div aria-hidden className="absolute inset-x-0 bottom-0 h-[70px] bg-linear-to-b from-cielo/0 to-cielo md:hidden" />
+              </div>
+              <div className="flex flex-1 flex-col pt-[3px] pb-[33px] md:pt-2 md:pb-10 xl:pb-[43px]">
+                <h3 className="flex items-center gap-[26px] pr-[4%] pl-[33px] font-display text-xl leading-[1.1] text-azul md:gap-[5%] md:pl-[10%] md:text-2xl xl:whitespace-pre-line">
                   <Icono {...s.icono} className="h-auto w-[50px] shrink-0" />
                   {s.titulo}
                 </h3>
-                <p className="mt-5 pr-[16%] pl-[14.5%] text-base leading-[1.36] text-tinta">{s.texto}</p>
+                <p className="relative mt-5 pr-[28px] pl-[28px] text-[15px] leading-[1.36] text-tinta md:pr-[16%] md:pl-[14.5%] md:text-base">{s.texto}</p>
               </div>
             </li>
           ))}

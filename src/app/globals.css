@@ -33,7 +33,10 @@
 html {
   scroll-behavior: smooth;
   /* La cabecera es fija: que las anclas no queden debajo. */
-  scroll-padding-top: 72px;
+  scroll-padding-top: 117px;
+  @variant sm {
+    scroll-padding-top: 100px;
+  }
   @variant xl {
     scroll-padding-top: 119px;
   }
@@ -61,5 +64,6 @@ body {
 
 /* Esquina redondeada tipo "hoja" que se repite en todo el diseño. */
 @utility hoja {
-  border-top-right-radius: clamp(3.5rem, 6.6vw, var(--radius-hoja));
+  /* 127 en ambos artboards; solo cede en pantallas muy estrechas. */
+  border-top-right-radius: min(var(--radius-hoja), 34vw);
 }

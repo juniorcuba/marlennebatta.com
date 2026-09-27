@@ -8,21 +8,25 @@ export function BotonAgenda({ grande = false, className = "" }: { grande?: boole
       href={`#${anclas.contacto}`}
       className={`inline-flex items-center justify-center bg-azul text-white transition-colors hover:bg-[#003f6b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azul ${
         grande
-          ? "h-16 gap-4 px-6 text-lg xl:h-[79px] xl:gap-[22px] xl:text-xl"
-          : "h-11 gap-2.5 px-3.5 text-[15px] sm:h-[58px] sm:gap-[13px] sm:px-5 sm:text-base"
+          ? "h-16 gap-7 px-6 text-base sm:gap-4 sm:text-lg xl:h-[79px] xl:gap-[22px] xl:text-xl"
+          : "h-[58px] gap-[11px] px-[15px] text-left text-sm leading-[1.07] sm:gap-[13px] sm:px-5 sm:text-base sm:leading-normal"
       } ${className}`}
     >
       <Icono
         nombre="calendario"
         ancho={36}
         alto={37}
-        className={grande ? "size-8 xl:h-[37px] xl:w-9" : "size-6 sm:h-[37px] sm:w-9"}
+        className={grande ? "h-[33px] w-8 xl:h-[37px] xl:w-9" : "h-[27px] w-[26px] sm:h-[37px] sm:w-9"}
       />
       {grande ? (
         "Agenda una llamada"
       ) : (
         <>
-          <span className="sm:hidden">Agendar</span>
+          <span className="sm:hidden">
+            Agenda
+            <br />
+            una llamada
+          </span>
           <span className="hidden sm:inline">Agenda una llamada</span>
         </>
       )}

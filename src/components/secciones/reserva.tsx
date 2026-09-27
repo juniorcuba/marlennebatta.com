@@ -65,14 +65,15 @@ export function Reserva({ encabezado, foto }: Props) {
 
   return (
     <form onSubmit={enviar} aria-labelledby="contacto-titulo">
-      <div className="grid gap-10 xl:grid-cols-[492px_1fr] xl:gap-[54px]">
-        <div className="hidden xl:block">{foto}</div>
+      <div className="grid gap-[30px] md:gap-10 xl:grid-cols-[492px_1fr] xl:gap-[54px]">
+        {/* Móvil: la foto va a sangre arriba de la caja; en tablet se omite. */}
+        <div className="-mx-[31px] md:hidden xl:mx-0 xl:block">{foto}</div>
         <div className="xl:pt-[23px]">
           {encabezado}
 
-          <fieldset className="mt-8 xl:mt-4">
-            <legend className="text-base leading-[1.36] text-[#121212]">Elige un día</legend>
-            <div className="mt-4 grid max-w-[404px] grid-cols-3 sm:grid-cols-5 gap-x-2 gap-y-[18px] xl:gap-x-[13px]">
+          <fieldset className="mt-[19px] md:mt-8 xl:mt-4">
+            <legend className="text-[15px] leading-[1.36] text-[#121212] md:text-base">Elige un día</legend>
+            <div className="mt-[18px] grid max-w-[329px] grid-cols-4 gap-x-[23px] gap-y-4 max-[359px]:grid-cols-3 max-[359px]:gap-x-3 sm:max-w-[404px] sm:grid-cols-5 sm:gap-x-2 sm:gap-y-[18px] xl:gap-x-[13px]">
               {(dias ?? Array.from({ length: DIAS_VISIBLES }, () => null)).map((d, i) =>
                 d ? (
                   <label key={d.valor} className="group relative cursor-pointer">
@@ -99,14 +100,14 @@ export function Reserva({ encabezado, foto }: Props) {
             </div>
           </fieldset>
 
-          <label className="relative mt-7 flex h-12 w-[233px] items-center bg-white xl:mt-[37px]">
+          <label className="relative mt-[18px] flex h-12 w-[233px] items-center bg-white md:mt-7 xl:mt-[37px]">
             <span className="sr-only">Elige una hora (hora del Este, ET)</span>
             <Icono nombre="f-reloj" ancho={22} alto={22} className="pointer-events-none absolute left-[11px]" />
             <select
               name="hora"
               required
               defaultValue={HORAS[0].valor}
-              className="h-full w-full cursor-pointer appearance-none bg-transparent pr-[65px] pl-[58px] text-base text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul"
+              className="h-full w-full cursor-pointer appearance-none bg-transparent pr-[65px] pl-[58px] text-[15px] text-black md:text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul"
             >
               {HORAS.map((h) => (
                 <option key={h.valor} value={h.valor}>
@@ -120,21 +121,21 @@ export function Reserva({ encabezado, foto }: Props) {
               </svg>
             </span>
           </label>
-          <p className="mt-5 text-xs leading-[1.36] text-black">*Completa el formulario para confirmar la solicitud.</p>
+          <p className="mt-[17px] text-xs md:mt-5 leading-[1.36] text-black">*Completa el formulario para confirmar la solicitud.</p>
         </div>
       </div>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:mt-[41px] xl:gap-x-[29px] xl:gap-y-[30px]">
+      <div className="mt-[25px] grid gap-[25px] md:mt-10 md:grid-cols-2 md:gap-5 xl:mt-[41px] xl:gap-x-[29px] xl:gap-y-[30px]">
         <Campo icono={{ nombre: "f-nombre", ancho: 19, alto: 22 }} etiqueta="Nombre completo" marcador="Nombre Completo*" name="nombre" autoComplete="name" required />
         <Campo icono={{ nombre: "f-empresa", ancho: 19, alto: 19 }} etiqueta="Empresa (opcional)" marcador="Empresa (opcional)" name="empresa" autoComplete="organization" />
-        <Campo icono={{ nombre: "f-correo", ancho: 23, alto: 15 }} etiqueta="Correo electrónico" marcador="Correo Electrónico*" name="correo" type="email" autoComplete="email" required />
-        <Campo icono={{ nombre: "f-telefono", ancho: 21, alto: 20 }} etiqueta="WhatsApp o teléfono" marcador="WhatsApp / Teléfono*" name="telefono" type="tel" autoComplete="tel" required />
+        <Campo icono={{ nombre: "f-correo", ancho: 23, alto: 15 }} etiqueta="Correo electrónico" marcador="Correo Electrónico*" name="correo" type="email" autoComplete="email" required className="max-md:order-4" />
+        <Campo icono={{ nombre: "f-telefono", ancho: 21, alto: 20 }} etiqueta="WhatsApp o teléfono" marcador="WhatsApp / Teléfono*" name="telefono" type="tel" autoComplete="tel" required className="max-md:order-3" />
       </div>
 
-      <div className="mt-7 flex justify-center">
+      <div className="mt-[26px] flex justify-center md:mt-7">
         <button
           type="submit"
-          className="h-[59px] w-full max-w-[264px] bg-azul text-base text-white transition-colors hover:bg-[#003f6b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azul"
+          className="h-16 w-full max-w-[264px] bg-azul text-[15px] text-white md:h-[59px] md:text-base transition-colors hover:bg-[#003f6b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azul"
         >
           Confirmar solicitud
         </button>
@@ -151,13 +152,14 @@ type CampoProps = {
   type?: "text" | "email" | "tel";
   autoComplete: string;
   required?: boolean;
+  className?: string;
 };
 
-function Campo({ icono, etiqueta, marcador, name, type = "text", autoComplete, required }: CampoProps) {
+function Campo({ icono, etiqueta, marcador, name, type = "text", autoComplete, required, className = "" }: CampoProps) {
   return (
-    <label className="relative flex h-12 items-center bg-white focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-azul">
+    <label className={`relative flex h-12 items-center bg-white focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-azul ${className}`}>
       <span className="sr-only">{etiqueta}</span>
-      <span className="pointer-events-none absolute left-[13px] grid w-6 place-items-center">
+      <span className="pointer-events-none absolute left-[15px] grid w-6 place-items-center md:left-[13px]">
         <Icono {...icono} />
       </span>
       <input
@@ -167,7 +169,7 @@ function Campo({ icono, etiqueta, marcador, name, type = "text", autoComplete, r
         required={required}
         placeholder={marcador}
         maxLength={type === "email" ? 254 : 120}
-        className="h-full w-full bg-transparent pr-4 pl-[49px] text-base text-black outline-none placeholder:text-black"
+        className="h-full w-full bg-transparent pr-4 pl-[58px] text-[15px] text-black outline-none md:pl-[49px] md:text-base placeholder:text-black"
       />
     </label>
   );

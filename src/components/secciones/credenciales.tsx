@@ -1,10 +1,12 @@
-import Image from "next/image";
 import { anclas } from "@/lib/sitio";
 import { Icono } from "@/components/ui/icono";
+import { ImagenAdaptable } from "@/components/ui/imagen-adaptable";
 
 /*
- * Rectangle 45 (y 900–1294). El fondo es el render compuesto del nodo: foto en
- * blanco y negro al 56 % + dos degradados #1d1d1d que oscurecen la izquierda.
+ * Credenciales. Escritorio: Rectangle 45 (y 900–1294), foto en blanco y negro
+ * al 56 % + dos degradados #1d1d1d que oscurecen la izquierda. Móvil: 640:534
+ * (407 × 513), texto centrado arriba y la foto asomando por abajo. Los fondos son
+ * los renders compuestos de cada nodo.
  */
 export function Credenciales() {
   return (
@@ -13,16 +15,18 @@ export function Credenciales() {
       aria-labelledby="credenciales-titulo"
       className="relative isolate overflow-hidden bg-carbon text-white"
     >
-      <Image
-        src="/images/credenciales-bg.webp"
+      <ImagenAdaptable
         alt=""
-        fill
-        sizes="100vw"
-        className="-z-10 object-cover object-[70%_center] opacity-40 md:opacity-100"
+        movil={{ src: "/images/credenciales-movil.webp", width: 814, height: 1026, sizes: "100vw" }}
+        escritorio={{ src: "/images/credenciales-bg.webp", width: 2880, height: 591, sizes: "100vw" }}
+        className="absolute inset-0 -z-10 size-full object-cover object-bottom xl:object-[70%_center]"
       />
-      <div className="contenedor py-14 md:py-0 md:min-h-[clamp(20rem,20.5vw,24.625rem)] md:flex md:items-center">
-        <div className="max-w-[483px] md:ml-[7.5%]">
-          <h2 id="credenciales-titulo" className="font-display text-[clamp(1.875rem,1.2rem+1.4vw,2.5rem)] leading-[0.89]">
+      <div className="contenedor min-h-[513px] pt-[35px] pb-10 text-center xl:flex xl:min-h-[clamp(20rem,20.5vw,24.625rem)] xl:items-center xl:py-0 xl:text-left">
+        <div className="mx-auto max-w-[300px] xl:mx-0 xl:ml-[7.5%] xl:max-w-[483px]">
+          <h2
+            id="credenciales-titulo"
+            className="mx-auto max-w-[207px] font-display text-[clamp(1.5rem,1.235rem+1.054vw,2.5rem)] leading-[1.08] xl:max-w-none xl:leading-[0.89]"
+          >
             Credenciales y estrategia
           </h2>
           <Icono
@@ -30,9 +34,9 @@ export function Credenciales() {
             ancho={227}
             alt="Tecnológico de Monterrey"
             alto={61}
-            className="mt-10 h-auto w-[190px] md:mt-[81px] md:ml-[21px] md:w-[227px]"
+            className="mx-auto mt-[22px] h-auto w-[163px] xl:mx-0 xl:mt-[81px] xl:ml-[21px] xl:w-[227px]"
           />
-          <p className="mt-6 max-w-[447px] font-grotesk text-base leading-[1.19] md:mt-[38px] md:ml-[18px]">
+          <p className="mx-auto mt-[34px] max-w-[272px] text-left font-grotesk text-sm leading-[1.19] xl:mx-0 xl:mt-[38px] xl:ml-[18px] xl:max-w-[447px] xl:text-base">
             Certificada en Strategic Sales Leader y Coaching Empresarial · Tec de Monterrey
           </p>
         </div>
