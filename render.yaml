@@ -10,3 +10,8 @@ services:
       # Vista previa: sin indexar. Poner a "false" solo en el despliegue definitivo.
       - key: NEXT_PUBLIC_NOINDEX
         value: "true"
+      # Destino de las solicitudes del formulario (se rellenan en el panel de Render).
+      - key: SOLICITUD_WEBHOOK_URL
+        sync: false
+      - key: SOLICITUD_WEBHOOK_SECRETO
+        sync: false
