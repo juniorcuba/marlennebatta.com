@@ -12,9 +12,9 @@ export const sitio = {
   descripcion:
     "Consultoría comercial, capacitación de equipos de venta y coaching para líderes de empresas, call centers y negocios de servicios que quieren convertir más oportunidades en clientes.",
   correo: "mb@marlenebatta.com",
-  // PENDIENTE: URLs reales de redes.
+  // Confirmadas por la clienta el 2026-09-27 (sin los parámetros de rastreo del enlace compartido).
   redes: {
-    linkedin: "https://www.linkedin.com/in/marlenebatta",
+    linkedin: "https://www.linkedin.com/in/marlene-batta",
     instagram: "https://www.instagram.com/marlenebatta",
   },
   locale: "es_MX",

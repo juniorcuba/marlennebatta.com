@@ -10,6 +10,17 @@ services:
       # Vista previa: sin indexar. Poner a "false" solo en el despliegue definitivo.
       - key: NEXT_PUBLIC_NOINDEX
         value: "true"
+      # Correo de las solicitudes (SMTP de GoDaddy). La contraseña, solo en el panel.
+      - key: SMTP_HOST
+        value: smtpout.secureserver.net
+      - key: SMTP_PUERTO
+        value: "465"
+      - key: SMTP_USUARIO
+        value: mb@marlenebatta.com
+      - key: SMTP_CONTRASENA
+        sync: false
+      - key: CORREO_DESTINO
+        sync: false
       # Destino de las solicitudes del formulario (se rellenan en el panel de Render).
       - key: SOLICITUD_WEBHOOK_URL
         sync: false
